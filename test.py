@@ -1,7 +1,10 @@
 import sqlite3
-bd=sqlite3.connect("./Logins/bd")
+bd=sqlite3.connect(r"./Logins/bd")
 cursor=bd.cursor()
-cursor.execute("""INSERT INTO * VALUES""")
+
+cursor.execute(("""CREATE TABLE logins (login text, password text)"""))
+
+#cursor.execute("""INSERT INTO * VALUES""")
 bd.commit()
 
 
