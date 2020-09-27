@@ -1,0 +1,10 @@
+поиск по бд
+bd=sqlite3.connect(r'./Logins/bd')
+cursor=bd.cursor()
+cursor.execute("""SELECT login FROM logins WHERE login LIKE ? """, ['UZ'])
+temp=cursor.fetchall()
+print(temp)
+print(temp.find("UZA"))
+for row in temp:
+    print(row)
+bd.commit()

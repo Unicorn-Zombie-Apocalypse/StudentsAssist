@@ -1,11 +1,14 @@
 import telebot
 from telebot import types
 global str
-import _sqlite3
-import time
+import sqlite3
+
 otv = ""
 login = ""
 pas = ""
+
+
+
 
 login=str(login)
 pas=str(pas)
@@ -54,17 +57,6 @@ def send_text(message):
             bot.send_message(message.chat.id, "Не обижайся сладкая булочка,ты лучший")
     print(message.chat.id, message.text)
 
-    # buttons
-
-    if message.text == "Тест кнопок":
-        markup = types.ReplyKeyboardMarkup(row_width=1)
-        itembtn1 = types.KeyboardButton('Кнопка 1')
-        itembtn2 = types.KeyboardButton('Кнопка 2')
-        itembtn3 = types.KeyboardButton('Кнопка 3')
-        restart = types.KeyboardButton('Тест кнопок')
-        markup.row(itembtn1, itembtn2, itembtn3)
-        markup.row(restart)
-        # bot.send_message(message.chat.id, "", reply_markup=markup)
 
 
 def get_login(message):
