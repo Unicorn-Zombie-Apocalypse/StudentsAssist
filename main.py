@@ -88,7 +88,7 @@ def get_pas(message):
     markup.add(no_btn)
     bot.send_message(message.chat.id, "Всё верно?",)
 
-def reg_login(message):
+# def reg_login(message):
 
 
 bot.polling()
