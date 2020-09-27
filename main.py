@@ -99,6 +99,8 @@ def reg_login(message):
     bd = sqlite3.connect(r'./Logins/bd')
     cursor = bd.cursor()
     cursor.execute("""SELECT * FROM logins WHERE ID LIKE '{sravnenie}' """.format(sravnenie=str(message.chat.id)))
+    srav = cursor.fetchall()
+
     if str(srav) == "[]":
         print("Create User")
         cursor.execute("""INSERT INTO logins (ID) VALUES (?)""", [message.chat.id])
@@ -114,7 +116,6 @@ def reg_pas(message):
     cursor = bd.cursor()
     cursor.execute("""SELECT * FROM logins WHERE ID LIKE '{sravnenie}' """.format(sravnenie=str(message.chat.id)))
     cursor.execute("""UPDATE logins SET password = "{pas}" where id = {id}""".format(pas=message.text, id=message.chat.id))
-    print(srav)
     bd.commit()
     bot.send_message(message.chat.id,"Ваше имя? (Не никнейм)")
     bot.register_next_step_handler(message, reg_name)
