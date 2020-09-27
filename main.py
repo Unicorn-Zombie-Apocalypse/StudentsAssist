@@ -34,6 +34,8 @@ def help_message(message):
     bot.send_message(message.chat.id, 'https://habr.com/ru/post/448310/')
     bot.send_message(message.chat.id, "==============================================================")
     bot.send_message(message.chat.id, "https://python-scripts.com/sqlite")
+    bot.send_message(message.chat.id, "==============================================================")
+    bot.send_message(message.chat.id, "https://www.severcart.ru/blog/all/python_sqlite3/")
 
 
 @bot.message_handler(content_types=['text'])
@@ -50,6 +52,11 @@ def send_text(message):
         hide_keyboard = types.ReplyKeyboardRemove()
         bot.send_message(message.chat.id, 'Введи логин',reply_markup=hide_keyboard)
         bot.register_next_step_handler(message, get_login)
+
+    if message.text == 'Регистрация':
+        hide_keyboard = types.ReplyKeyboardRemove()
+        bot.send_message(message.chat.id, 'Выбери свой логин', reply_markup=hide_keyboard)
+        bot.register_next_step_handler(message, reg_login)
 
         
     if message.chat.id == 480718174:
@@ -69,6 +76,7 @@ def get_login(message):
 def get_pas(message):
     global pas
     pas=message.text
+
     bot.send_message(message.from_user.id,"Твой логин " + login)
     bot.send_message(message.from_user.id, "Твой пароль " + pas)
 
@@ -79,5 +87,8 @@ def get_pas(message):
     markup.add(yes_btn)
     markup.add(no_btn)
     bot.send_message(message.chat.id, "Всё верно?",)
+
+def reg_login(message):
+
 
 bot.polling()
