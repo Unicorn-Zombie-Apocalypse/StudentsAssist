@@ -11,7 +11,7 @@ pas = ""
 login = str(login)
 pas = str(pas)
 
-bot = telebot.TeleBot('782395944:AAEu8XayCTB-LbM-jbSCIe8fpcvXSSfq8bM')
+bot = telebot.TeleBot('')
 
 
 @bot.message_handler(commands=['start'])
