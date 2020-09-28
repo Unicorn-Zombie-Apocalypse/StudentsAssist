@@ -44,7 +44,6 @@ def help_message(message):
 def send_text(message):
     if message.text == 'привет':
         bot.send_message(message.chat.id, 'Привет, мой создатель')
-        bot.send_message(message.chat.id, )
     if message.text == 'тест':
         bot.send_message(message.chat.id, str(message.text()))
     elif message.text == 'пока':
